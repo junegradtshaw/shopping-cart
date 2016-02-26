@@ -3,20 +3,24 @@
   </select> -->
 <h4>{{test}}</h4>
 <label for="category">Search by category: </label>
-<select ng-model="selected-category" ng-options="category.name for category in categories"></select>
+<select id="category" ng-model="selected" ng-options="category.name for category in categories"></select>
+<!-- <select id="category" ng-model="selected-category" ng-options="category.name for category in categories"></select> -->
 <label for="search">Search by name: </label>
 <input type="text" ng-model="search">
 <a href="/checkout">
   <button class="quantity">Checkout | Bag: </button>
 </a>
-<table>
+<table class = "inventoryTable">
   <thead>
     <th>Tea</th>
-    <th>Information</th>
-    <th>
-      <label for="sort">Sort by {{sortChoice}}:</label>
-      <select name="" id="" ng-model="sortChoice" ng-options="sortChoice in sortChoices"></select>
+    <th>Information
+      <div class="">
+        <label class = "rightSide" for="sort">Sort by {{sortChoice}}:</label>
+        <select name="" id="" ng-model="sortPrice" ng-options="sortPrice.name for sortPrice in sortPrices"></select>
+      </div>
     </th>
+    <!-- <th> -->
+    <!-- </th> -->
   </thead>
     <tr ng-repeat = "tea in teas">
       <td>
