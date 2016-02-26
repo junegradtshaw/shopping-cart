@@ -5,6 +5,11 @@ body {
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    padding: 2px;
+}
+
+th * {
+  display: inline-block;
 }
 
 .inventoryTable {
@@ -33,4 +38,8 @@ table, th, td {
   border: 1;
   background-color: #E46153;
   color: white;
+}
+
+.rightSide {
+  float: right;
 }

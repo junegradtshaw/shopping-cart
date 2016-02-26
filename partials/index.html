@@ -3,19 +3,19 @@
   </select> -->
 <h4>{{test}}</h4>
 <label for="category">Search by category: </label>
-<select id="category" ng-model="selected" ng-options="category.name for category in categories"></select>
+<select id="category" ng-model="searchCategory" ng-options="category.name for category in categories"></select>
 <!-- <select id="category" ng-model="selected-category" ng-options="category.name for category in categories"></select> -->
 <label for="search">Search by name: </label>
-<input type="text" ng-model="search">
+<input type="text" ng-model="searchName">
 <a href="/checkout">
   <button class="quantity">Checkout | Bag: </button>
 </a>
 <table class = "inventoryTable">
   <thead>
-    <th>Tea</th>
-    <th>Information
-      <div class="">
-        <label class = "rightSide" for="sort">Sort by {{sortChoice}}:</label>
+    <th><span>Tea</span></th>
+    <th><span>Information</span>
+      <div class="rightSide">
+        <label class = "" for="sort">Sort by {{sortChoice}}:</label>
         <select name="" id="" ng-model="sortPrice" ng-options="sortPrice.name for sortPrice in sortPrices"></select>
       </div>
     </th>
