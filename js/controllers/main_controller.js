@@ -11,12 +11,17 @@ app.controller('MainController', ['$scope', 'Tea', function($scope, Tea){
   $scope.searchName;
   $scope.teas;
 
-  Tea.getall().then(function(data) {
-    console.log('got to getall');
-    $scope.teas = data;
-    console.log('tea: ', $scope.teas);
+  var promise = Tea.getall();
+    promise.then(function(data) {
+    $scope.teas = data.data;
+    console.log('5 ********** ', $scope.teas);
   })
 
-}])
+ //  app.controller('MainController', ['$scope', '$routeParams', 'MyService', function($scope, $routeParams, MyService){
+ //
+ //   $scope.teas = data.data
+ //   console.log($scope.teas);
+ // })
 
-// })();
+
+}])
