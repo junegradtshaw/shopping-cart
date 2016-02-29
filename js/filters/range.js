@@ -1,4 +1,4 @@
-myApp.filter('range', function() {
+app.filter('Range', function() {
   return function(input, min, max) {
     min = parseInt(min); //Make string input int
     max = parseInt(max);
