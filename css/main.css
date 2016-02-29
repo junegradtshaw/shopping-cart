@@ -78,12 +78,22 @@ th * {
   font-style: italic;
 }
 
-.checkout {
+.checkoutButton {
   float: right;
   padding: 2;
   border: 1;
   background-color: #E46153;
   color: white;
+}
+
+.orderTotal {
+  float: right;
+  padding: 2;
+  border: 1;
+}
+
+.orderTotal h3 {
+  display: inline-block;
 }
 
 .rightSide {
