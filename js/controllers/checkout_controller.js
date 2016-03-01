@@ -1,17 +1,28 @@
 app.controller('CheckoutController', ['$scope', 'Tea', function($scope, Tea){
-  $scope.categories=[{name:'awesome'}, {name:'cold'}, {name: 'warm'}, {name: 'hot'}, {name: 'winter'},
-  {name: 'spring'}, {name: 'summer'}, {name: 'fall'}, {name: 'dark'}, {name: 'lucid'}];
-  $scope.invoice=[];
+  // $scope.categories=[{name:'awesome'}, {name:'cold'}, {name: 'warm'}, {name: 'hot'}, {name: 'winter'},
+  // {name: 'spring'}, {name: 'summer'}, {name: 'fall'}, {name: 'dark'}, {name: 'lucid'}];
+  $scope.cart;
+  // $scope.invoice=[];
   $scope.teas;
-  $scope.maxQty=20;
+  $scope.categories;
+  // $scope.maxQty=20;
   // $scope.quantity=[$scope.maxQty];
-  $scope.quantity={};
+  // $scope.quantity={};
   // [$scope.maxQty];
   // $scope.quantity[0]=10;
 
-  var promise = Tea.getall();
+  // var promise = Tea.getall();
+  //   promise.then(function(data) {
+  //   $scope.teas = data.data;
+  // })
+
+  var promise = Tea.getTeas();
     promise.then(function(data) {
     $scope.teas = data.data;
+    $scope.categories = Tea.getCategories();
+    $scope.cart = Tea.getCart()
+    console.log('teas: ', $scope.teas);
+    console.log('scope cart', $scope.cart);
   })
 
 }])

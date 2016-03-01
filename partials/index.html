@@ -1,14 +1,10 @@
-<!-- <label for="sort"> Sort by  </label>
-  <select ng-model="selected" ng-options="selection.field for selection in selections">
-  </select> -->
-<!-- <h4>{{test}}</h4> -->
 <label for="category">Search by category: </label>
 <select id="category" ng-model="searchCategory.categories">
   <option ng-repeat = "category in categories">{{category}}</option>
 </select>
 <label for="search">Search by name: </label>
 <input type="text" ng-model="searchName">
-<a href="/checkout">
+<a href="/#/checkout">
   <button class="checkoutButton">Checkout | Bag: </button>
 </a>
 <table class = "inventoryTable">
@@ -16,19 +12,13 @@
     <th><span>Tea</span></th>
     <th><span>Information</span>
       <div class="rightSide">
-        <label class = "" for="sort">Sort by {{sortChoice}}:</label>
-        <select ng-model="selectedSortPrice" ng-options="sortPrice.name for sortPrice in sortPrices"></select>
-        <!-- <select ng-model="selectedSortPrice">
-        <! <select ng-model="selectedSortPrice" ng-init="selectedSortPrice='false'"> -->
-          <!-- <option value="false">Highest</option>
-          <option value="true">Lowest</option>
-        </select> -->
+        <label class = "" for="sort">Sort by Price: </label>
+        <select ng-model="selectedSortPrice" ng-options = "sortPrice.name for sortPrice in sortPrices"></select>
       </div>
     </th>
   </thead>
-    <!-- <tr ng-repeat = "tea in teas |orderBy: 'price' : selectedSortPrice.descend"> -->
-    <!-- <tr ng-repeat = "tea in teas | filter:searchCategory |orderBy: 'price' : selectedSortPrice.descend"> -->
-    <tr ng-repeat = "tea in teas | filter: searchCategory | filter: searchName | orderBy: 'price' : selectedSortPrice.descend">
+    <h3>{{selectedSortPrice.descend}}</h3>
+    <tr ng-model = "tea.teas" ng-repeat = "tea in teas | filter: searchCategory | filter: searchName |orderBy: 'price' : selectedSortPrice.descend">
       <td class = "width-1-3">
         <section>
           <img ng-src="{{tea.imageUrl}}" alt="">
@@ -39,14 +29,10 @@
           <h3>{{tea.name}}</h3>
           <section class = "quantity">
             <label for="quantity">Quantity: </label>
-            <select id="quantity" ng-model="quantity" ng-options="n for n in [] | Range:0:20"></select>
-            <!-- <a href="/checkout"> -->
-            <button class="addToCart" ng-click="ShoppingBag.addItems({name:tea.name, quantity: quantity})">Add to Bag</button>
-            <!-- </a> -->
+            <select id="quantity" ng-model="tea.quantity" ng-init="quantity=tea.quantity" ng-options="n for n in [] | Range:0:20"></select>
+            <button class="addToCart" ng-click="addToCart(tea)">Add to Bag</button>
           </section>
           <h5>Price:  {{tea.price | CurrencyCoin | currency}}</h5>
-          <!-- <h5>Price:  {{tea.price/100 | currency: "$" :2}}</h5> -->
-          <!-- <h5>Price:  {{tea.price | Currencycoin | currency:"USD$":2}}</h5> -->
           <h5>Caffeine Scale:  {{tea.caffeineScale}}</h5>
           <h5>Ingredients:  <span ng-repeat = "ingredient in tea.ingredients">{{ingredient}}</span></h5>
           <h5>Rating:  {{tea.rating}}</h5>

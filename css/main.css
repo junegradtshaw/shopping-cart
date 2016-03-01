@@ -58,6 +58,16 @@ th * {
   width: 45%;
 }
 
+.width-1-4 {
+  padding: 5px;
+  width: 22%;
+}
+
+.width-1-8 {
+  padding: 5px;
+  width: 11%;
+}
+
 .inventoryTable {
   width: 100%;
   margin-top: 10px;
@@ -86,6 +96,10 @@ th * {
   color: white;
 }
 
+.checkout {
+  display: inline-block;
+}
+
 .orderTotal {
   float: right;
   padding: 2;
@@ -107,6 +121,13 @@ th * {
 
 .inventoryTable h3 {
   display: inline-block;
+}
+
+table {
+  text-align: left;
+  vertical-align: top;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .quantity {
