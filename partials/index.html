@@ -29,7 +29,7 @@
           <section class = "quantity">
             <label for="quantity">Quantity: </label>
             <select id="quantity" ng-model="tea.quantity" ng-init="quantity=tea.quantity" ng-options="n for n in [] | Range:0:20"></select>
-            <button class="addToCart" ng-click="Tea.addToCart(tea)">Add to Bag</button>
+            <button class="addToCart" ng-click="$Tea.addToCart(tea)">Add to Bag</button>
           </section>
           <h5>Price:  {{tea.price | CurrencyCoin | currency}}</h5>
           <h5>Caffeine Scale:  {{tea.caffeineScale}}</h5>
