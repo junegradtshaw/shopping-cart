@@ -9,3 +9,9 @@ app.filter('CurrencyCoin', function() {
     return input/100;
   }
 });
+
+// app.filter('BagTotal', function() {
+//   return function(input) {
+//     return ("(" )
+//   }
+// }
