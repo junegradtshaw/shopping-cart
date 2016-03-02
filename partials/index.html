@@ -5,16 +5,12 @@
 <label for="search">Search by name: </label>
 <input type="text" ng-model="searchName">
 <a href="/#/checkout">
-  <button class="checkoutButton">Checkout | Bag:           <!--<span>{{$Tea.getTotalItems()}}</span> -->
-          <!-- <ng-pluralize class = "border-right" count="$Tea.getTotalItems()"
-                         when="{0: 'Empty!',
-                         1: ' item',
-                         'other': ' items'}">
-          </ng-pluralize> -->
-          <ng-pluralize class = "border-right" count="$Tea.getTotalItems()"
-                         when="{0: 'Empty!',
-                         1: '({{$Tea.getTotalItems()}})'}">
-          </ng-pluralize>
+  <button class="checkoutButton">Checkout | Bag:
+    <ng-pluralize class = "border-right" count="$Tea.getTotalItems()"
+                   when="{'0': 'Empty!',
+                   'one' : '(1)',
+                   'other': '({{$Tea.getTotalItems()}})'}">
+    </ng-pluralize>
  </button>
 </a>
 <table class = "inventoryTable">
@@ -38,8 +34,8 @@
           <h3>{{tea.name}}</h3>
           <section class = "quantity">
             <label for="quantity">Quantity: </label>
-            <select id="quantity" ng-model="tea.quantity" ng-init="quantity=tea.quantity" ng-options="n for n in [] | Range:0:20"></select>
-            <button class="addToCart" ng-click="$Tea.addToCart(tea)">Add to Bag</button>
+            <select id="quantity" ng-model="quantity"  ng-options="n for n in [] | Range:0:20"></select>
+            <button class="addToCart" ng-click="$Tea.addToCart(tea, quantity)">Add to Bag</button>
           </section>
           <h5>Price:  {{tea.price | CurrencyCoin | currency}}</h5>
           <h5>Caffeine Scale:  {{tea.caffeineScale}}</h5>

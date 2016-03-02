@@ -34,12 +34,14 @@ app.service('Tea', ['$http', '$q', function($http, $q){
       cart = [];
     },
 
-    addToCart : function(tea) {
+    addToCart : function(tea, quantity) {
       var index = cart.findIndex(cartTea => cartTea.name==tea.name)
-      if (index==-1)
+      if (index==-1) {
+        tea.quantity = quantity;
         cart.push(tea)
+      }
       else
-        cart[index].quantity+=tea.quantity;
+        cart[index].quantity+=quantity;
     },
 
     editCart: function(tea) {
