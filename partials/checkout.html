@@ -31,7 +31,7 @@
           {{tea.quantity}}
         </div>
         <div ng-show="editEnabled">
-          <input type = number ng-model=tea.quantity>
+          <input type = number min = 1 ng-model=tea.quantity>
         </div>
       </td>
       <td class = "width-1-8">{{tea.quantity * tea.price | CurrencyCoin | currency}}</td>

@@ -44,9 +44,9 @@ app.service('Tea', ['$http', '$q', function($http, $q){
         cart[index].quantity+=quantity;
     },
 
-    editCart: function(tea) {
+    editCart: function(tea, quantity) {
       var index = cart.findIndex(cartTea => cartTea.name==tea.name)
-      cart[index].quantity = tea.quantity;
+      cart[index].quantity = quantity;
     },
 
     removeFromCart : function(tea) {

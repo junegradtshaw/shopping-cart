@@ -1,6 +1,7 @@
-Fix category to be nothing
+x  Fix category to be nothing
 Default the range of quantity to start at 1
-Problem in search that it is not searching on every item.
-Negative input numbers on editCart
+x  Problem in search that it is not searching on every item. (BUILT AS REQUIRED)
+x  Search should be null if wanted
+x  Negative input numbers on editCart
 x  Bag number broken
 Place order button shift to right
