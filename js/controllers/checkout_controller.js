@@ -1,4 +1,5 @@
 app.controller('CheckoutController', ['$scope', 'Tea', function($scope, Tea){
+
   $scope.cart;
   $scope.teas;
   $scope.categories;

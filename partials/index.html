@@ -17,7 +17,6 @@
       </div>
     </th>
   </thead>
-    <!-- <tr ng-model = "tea.teas" ng-repeat = "tea in teas | filter: searchCategory | filter: searchName |orderBy: '-price' "> -->
     <tr ng-model = "tea.teas" ng-repeat = "tea in teas | filter: searchCategory | filter: searchName |orderBy: 'price' : selectedSortPrice.descend">
       <td class = "width-1-3">
         <section>
@@ -30,7 +29,7 @@
           <section class = "quantity">
             <label for="quantity">Quantity: </label>
             <select id="quantity" ng-model="tea.quantity" ng-init="quantity=tea.quantity" ng-options="n for n in [] | Range:0:20"></select>
-            <button class="addToCart" ng-click="addToCart(tea)">Add to Bag</button>
+            <button class="addToCart" ng-click="Tea.addToCart(tea)">Add to Bag</button>
           </section>
           <h5>Price:  {{tea.price | CurrencyCoin | currency}}</h5>
           <h5>Caffeine Scale:  {{tea.caffeineScale}}</h5>

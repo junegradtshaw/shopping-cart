@@ -43,10 +43,14 @@ app.service('Tea', ['$http', '$q', function($http, $q){
     }
 
     this.removeFromCart = function(tea) {
-      var index = that.cart.findIndex(cartTea => cartTea.name==tea.name)
+      console.log('cart before: ', cart);
+      var index = cart.findIndex(cartTea => cartTea.name==tea.name)
       cart.splice(index, 1);
+      console.log('cart before: ', cart);
+      console.log('stock before: ', stock);
       var index = stock.findIndex(stockTea => stockTea.name==tea.name)
       stock[index].quantity=0;
+      console.log('stock after: ', stock);
     }
 
     this.getCart = function() {
