@@ -1,16 +1,16 @@
 app.service('Tea', ['$http', '$q', function($http, $q){
     stock = [];
     categories = [];
-    this.cart;
+    cart = [];
     var that = this;
     var deferred = $q.defer();
 
     $http.get('../assets/tea.json').then(function(data) {
       stock=data.data;
       // this.stock=data;
-      for (var i = 0; i < data.data.length; i++) {
-        data.data[i]["quantity"]=0;
-        data.data[i].categories.forEach(function(element) {
+      for (var i = 0; i < stock.length; i++) {
+        stock[i]["quantity"]=0;
+        stock[i].categories.forEach(function(element) {
           categories.push(element)
         })
       }
@@ -18,7 +18,7 @@ app.service('Tea', ['$http', '$q', function($http, $q){
         return element
       });
       // this.selectedCategory=categories[0]
-      deferred.resolve(data);
+      deferred.resolve(stock);
      })
     return {
 
@@ -43,15 +43,18 @@ app.service('Tea', ['$http', '$q', function($http, $q){
         cart[index].quantity+=tea.quantity;
     },
 
+    editCart: function(tea) {
+      var index = cart.findIndex(cartTea => cartTea.name==tea.name)
+      cart[index].quantity = tea.quantity;
+    },
+
     removeFromCart : function(tea) {
-      console.log('cart before: ', cart);
       var index = cart.findIndex(cartTea => cartTea.name==tea.name)
       cart.splice(index, 1);
-      console.log('cart before: ', cart);
-      console.log('stock before: ', stock);
-      var index = stock.findIndex(stockTea => stockTea.name==tea.name)
-      stock[index].quantity=0;
-      console.log('stock after: ', stock);
+      // console.log('stock before: ', stock);
+      // var index = stock.findIndex(stockTea => stockTea.name==tea.name)
+      // stock[index].quantity=0;
+      // console.log('stock after: ', stock);
     },
 
     getCart : function() {

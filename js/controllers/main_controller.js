@@ -24,7 +24,7 @@ app.controller('MainController', ['$scope', 'Tea', function($scope, Tea){
 
   var promise = Tea.getTeas();
   promise.then(function(data) {
-    $scope.teas = data.data;
+    $scope.teas = data;
     $scope.categories = Tea.getCategories();
     // Tea.initCart();
   })

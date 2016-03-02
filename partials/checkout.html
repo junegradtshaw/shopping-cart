@@ -25,11 +25,19 @@
             <h5>Rating:  {{tea.rating}}</h5>
         </section>
       </td>
-      <td class = "width-1-8">{{tea.quantity}}</td>
+      <td class = "width-1-8">
+        <div ng-hide="editEnabled">
+          {{tea.quantity}}
+        </div>
+        <div ng-show="editEnabled">
+          <input type = number ng-model=tea.quantity>
+        </div>
+      </td>
       <td class = "width-1-8">{{tea.quantity * tea.price / 100}}</td>
       <td class = "width-1-4">
         <section>
-          <button ng-click="$Tea.addToCart(tea)">Edit</button>
+          <button ng-hide="editEnabled" ng-click="editEnabled=!editEnabled">Edit</button>
+          <button ng-show="editEnabled" ng-click="editEnabled=!editEnabled; $Tea.updateCart(tea)">Save</button>
           <button ng-click="$Tea.removeFromCart(tea)">Remove</button>
         </section>
       </td>
