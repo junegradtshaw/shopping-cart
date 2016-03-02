@@ -1,7 +1,8 @@
 <section class = "checkoutHead">
   <h3 class = "checkout">My Shopping Bag</h3>
   <section class = "orderTotal">
-    <h3>Order total: </h3>
+    <h3>Order total:   </h3>
+    <h3>{{$Tea.getTotalCost() | CurrencyCoin | currency}}</h3>
     <span ng-model="orderTotal"></span>
 
   </section>
@@ -33,7 +34,7 @@
           <input type = number ng-model=tea.quantity>
         </div>
       </td>
-      <td class = "width-1-8">{{tea.quantity * tea.price / 100}}</td>
+      <td class = "width-1-8">{{tea.quantity * tea.price | CurrencyCoin | currency}}</td>
       <td class = "width-1-4">
         <section>
           <button ng-hide="editEnabled" ng-click="editEnabled=!editEnabled">Edit</button>

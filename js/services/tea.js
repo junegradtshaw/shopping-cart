@@ -64,6 +64,14 @@ app.service('Tea', ['$http', '$q', function($http, $q){
         count += cart[i].quantity;
       }
       return count;
+    },
+
+    getTotalCost: function() {
+      var cost = 0;
+      for (var i = 0; i < cart.length; i++) {
+        cost += cart[i].quantity * cart[i].price
+      }
+      return cost;
     }
 
   }
