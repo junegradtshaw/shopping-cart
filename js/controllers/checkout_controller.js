@@ -20,8 +20,6 @@ app.controller('CheckoutController', ['$scope', 'Tea', function($scope, Tea){
     $scope.teas = data.data;
     $scope.categories = Tea.getCategories();
     $scope.cart = Tea.getCart();
-    console.log('teas: ', $scope.teas);
-    console.log('scope cart', $scope.cart);
   })
 
 }])
