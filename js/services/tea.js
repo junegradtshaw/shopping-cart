@@ -1,8 +1,7 @@
 app.service('Tea', ['$http', '$q', function($http, $q){
     stock = [];
-    // this.stock = [];
     categories = [];
-    cart =[];
+    this.cart;
     var that = this;
     var deferred = $q.defer();
 
@@ -30,7 +29,12 @@ app.service('Tea', ['$http', '$q', function($http, $q){
       return deferred.promise
     }
 
+    this.init = function() {
+      cart = [];
+    }
+
     this.addToCart = function(tea) {
+      console.log('in addToCart');
       var index = cart.findIndex(cartTea => cartTea.name==tea.name)
       if (index==-1)
         cart.push(tea)
@@ -48,6 +52,16 @@ app.service('Tea', ['$http', '$q', function($http, $q){
     this.getCart = function() {
       console.log('cart in service: ', cart);
       return cart
+    }
+
+    this.getTotalItems = function() {
+      console.log('in getTotalItems');
+      var count = 0;
+      for (var i = 0; i < cart.length; i++) {
+        count += cart[i].quantity;
+      }
+      console.log('count returned: ', count);
+      return count;
     }
 
 

@@ -11,3 +11,7 @@ var app = angular.module('shoppingCartApp', ['ngRoute'])
             })
             .otherwise({redirectTo : '/'})
     })
+
+    app.run(['Tea', function (Tea) {
+      Tea.init();
+    }])

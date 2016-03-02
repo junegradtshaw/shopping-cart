@@ -3,7 +3,7 @@ app.controller('MainController', ['$scope', 'Tea', function($scope, Tea){
   $scope.searchCategory;
   $scope.categories = [];
   $scope.searchCategory=$scope.categories[0];
-  $scope.sortPrices=[{name: 'Highest', descend: 'true'}, {name: 'Lowest', descend: 'false'}];
+  $scope.sortPrices=[{name: 'Highest', descend: true}, {name: 'Lowest', descend: false}];
   $scope.selectedSortPrice;
   // $scope.selectedSortPrice = $scope.sortPrices[0];
   // $scope.selectedSortPrice = $scope.sortPrices[0];
@@ -18,12 +18,13 @@ app.controller('MainController', ['$scope', 'Tea', function($scope, Tea){
   // $scope.quantity[0]=10;
   $scope.addToCart = function(tea){
    Tea.addToCart(tea);
-}
+  }
 
   var promise = Tea.getTeas();
-    promise.then(function(data) {
+  promise.then(function(data) {
     $scope.teas = data.data;
     $scope.categories = Tea.getCategories();
+    // Tea.initCart();
   })
 
 }])

@@ -1,8 +1,5 @@
 app.controller('CheckoutController', ['$scope', 'Tea', function($scope, Tea){
-  // $scope.categories=[{name:'awesome'}, {name:'cold'}, {name: 'warm'}, {name: 'hot'}, {name: 'winter'},
-  // {name: 'spring'}, {name: 'summer'}, {name: 'fall'}, {name: 'dark'}, {name: 'lucid'}];
   $scope.cart;
-  // $scope.invoice=[];
   $scope.teas;
   $scope.categories;
   // $scope.maxQty=20;
@@ -17,10 +14,10 @@ app.controller('CheckoutController', ['$scope', 'Tea', function($scope, Tea){
   // })
 
   var promise = Tea.getTeas();
-    promise.then(function(data) {
+  promise.then(function(data) {
     $scope.teas = data.data;
     $scope.categories = Tea.getCategories();
-    $scope.cart = Tea.getCart()
+    $scope.cart = Tea.getCart();
     console.log('teas: ', $scope.teas);
     console.log('scope cart', $scope.cart);
   })
