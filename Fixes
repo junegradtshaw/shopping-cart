@@ -4,4 +4,4 @@ x  Problem in search that it is not searching on every item. (BUILT AS REQUIRED)
 x  Search should be null if wanted
 x  Negative input numbers on editCart
 x  Bag number broken
-Place order button shift to right
+x  Place order button shift to right
