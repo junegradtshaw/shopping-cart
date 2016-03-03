@@ -13,6 +13,10 @@ th * {
   display: inline-block;
 }
 
+button {
+  margin: 2px;
+}
+
 .flex-container {
   padding-left: 50px;
   padding-right: 50px;
@@ -132,5 +136,9 @@ table {
 }
 
 .quantity {
+  float: right;
+}
+
+.orderButton {
   float: right;
 }

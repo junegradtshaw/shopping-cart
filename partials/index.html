@@ -35,17 +35,7 @@
           <h3>{{tea.name}}</h3>
           <section class = "quantity">
             <label for="quantity">Quantity: </label>
-
-            <select id="foobar" ng-model="quantity">
-              <option value selected >Select a Category</option>
-              <option ng-repeat = "category in categories">{{category}}</option>
-            </select>
-
-            <!-- <select id="quantity" ng-model="quantity">
-              <option value selected >0000</option>
-              <option ng-repeat="n in [] | Range:1:20">{{n}}</option>
-            </select> -->
-            <!-- <select id="quantity" ng-model="quantity"  ng-options="n for n in [] | Range:0:20"></select> -->
+            <select id="quantity" ng-model="quantity" ng-init="quantity=tea.quantity" ng-options="n for n in [] | Range:0:20"></select>
             <button class="addToCart" ng-click="$Tea.addToCart(tea, quantity)">Add to Bag</button>
           </section>
           <h5>Price:  {{tea.price | CurrencyCoin | currency}}</h5>

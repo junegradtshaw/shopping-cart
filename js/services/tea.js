@@ -2,6 +2,7 @@ app.service('Tea', ['$http', '$q', function($http, $q){
     stock = [];
     categories = [];
     cart = [];
+    maxQty = 20;
     var that = this;
     var deferred = $q.defer();
 
@@ -36,12 +37,13 @@ app.service('Tea', ['$http', '$q', function($http, $q){
 
     addToCart : function(tea, quantity) {
       var index = cart.findIndex(cartTea => cartTea.name==tea.name)
+      console.log('***Tea=', tea);
       if (index==-1) {
         tea.quantity = quantity;
         cart.push(tea)
       }
       else
-        cart[index].quantity+=quantity;
+        cart[index].quantity += quantity;
     },
 
     editCart: function(tea, quantity) {
@@ -52,8 +54,10 @@ app.service('Tea', ['$http', '$q', function($http, $q){
     removeFromCart : function(tea) {
       var index = cart.findIndex(cartTea => cartTea.name==tea.name)
       cart.splice(index, 1);
-      // var index = stock.findIndex(stockTea => stockTea.name==tea.name)
-      // stock[index].quantity=0;
+    },
+
+    emptyCart: function() {
+      cart=[];
     },
 
     getCart : function() {
