@@ -57,7 +57,9 @@ app.service('Tea', ['$http', '$q', function($http, $q){
     },
 
     emptyCart: function() {
-      cart=[];
+      cart.forEach(function(item, index) {
+        cart.splice(index, 1);
+      })
     },
 
     getCart : function() {
