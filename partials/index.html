@@ -35,8 +35,10 @@
           <h3>{{tea.name}}</h3>
           <section class = "quantity">
             <label for="quantity">Quantity: </label>
-            <select id="quantity" ng-model="quantity" ng-init="quantity=tea.quantity" ng-options="n for n in [] | Range:0:20"></select>
-            <button class="addToCart" ng-click="quantity='0'"; $Tea.addToCart(tea, quantity)">Add to Bag</button>
+            <select id="quantity" ng-model="quantity" ng-init="quantity=0" ng-options="n for n in [] | Range:0:20"></select>
+            <!-- <select id="quantity" ng-model="quantity" ng-init="quantity=tea.quantity" ng-options="n for n in [] | Range:0:20"></select> -->
+            <button class="addToCart" ng-click="
+            $Tea.addToCart(tea, quantity)">Add to Bag</button>
           </section>
           <h5>Price:  {{tea.price | CurrencyCoin | currency}}</h5>
           <h5>Caffeine Scale:  {{tea.caffeineScale}}</h5>
